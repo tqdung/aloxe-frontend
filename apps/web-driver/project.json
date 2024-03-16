@@ -1,7 +1,7 @@
 {
-  "name": "web-aloxe",
+  "name": "web-driver",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/web-aloxe/src",
+  "sourceRoot": "apps/web-driver/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,18 +10,18 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/web-aloxe",
-        "index": "apps/web-aloxe/src/index.html",
+        "outputPath": "dist/apps/web-driver",
+        "index": "apps/web-driver/src/index.html",
         "baseHref": "/",
-        "main": "apps/web-aloxe/src/main.ts",
-        "tsConfig": "apps/web-aloxe/tsconfig.app.json",
+        "main": "apps/web-driver/src/main.ts",
+        "tsConfig": "apps/web-driver/tsconfig.app.json",
         "assets": [
-          "apps/web-aloxe/src/favicon.ico",
-          "apps/web-aloxe/src/assets"
+          "apps/web-driver/src/favicon.ico",
+          "apps/web-driver/src/assets"
         ],
-        "styles": ["apps/web-aloxe/src/styles.scss"],
+        "styles": ["apps/web-driver/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "apps/web-aloxe/webpack.config.ts"
+        "webpackConfig": "apps/web-driver/webpack.config.ts"
       },
       "configurations": {
         "development": {
@@ -33,8 +33,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/web-aloxe/src/environments/environment.ts",
-              "with": "apps/web-aloxe/src/environments/environment.prod.ts"
+              "replace": "apps/web-driver/src/environments/environment.ts",
+              "with": "apps/web-driver/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -43,7 +43,7 @@
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false,
-          "webpackConfig": "apps/web-aloxe/webpack.config.prod.ts"
+          "webpackConfig": "apps/web-driver/webpack.config.prod.ts"
         }
       }
     },
@@ -51,26 +51,16 @@
       "executor": "@nx/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "web-aloxe:build",
+        "buildTarget": "web-driver:build",
         "hmr": true,
-        "port": 4200
+        "port": 4203
       },
       "configurations": {
         "development": {
-          "buildTarget": "web-aloxe:build:development",
-          "devRemotes": [
-            "web-authentication",
-            "web-customer",
-            "web-driver"
-          ]
+          "buildTarget": "web-driver:build:development"
         },
         "production": {
-          "buildTarget": "web-aloxe:build:production",
-          "remotes": [
-            "web-authentication",
-            "web-customer",
-            "web-driver"
-          ],
+          "buildTarget": "web-driver:build:production",
           "hmr": false
         }
       }
@@ -79,16 +69,16 @@
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "web-aloxe:build",
+        "buildTarget": "web-driver:build",
         "watch": false,
-        "port": 4200
+        "port": 4203
       },
       "configurations": {
         "development": {
-          "buildTarget": "web-aloxe:build:development"
+          "buildTarget": "web-driver:build:development"
         },
         "production": {
-          "buildTarget": "web-aloxe:build:production"
+          "buildTarget": "web-driver:build:production"
         }
       }
     }

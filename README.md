@@ -14,6 +14,10 @@ comes with a LSP for Vim users.
 
 Run `npx nx serve web-aloxe` to start the development server. Happy coding!
 
+## Build with Docker
+
+Run `docker-compose up -d` to build the application. After Docker build successfully, access the link http://localhost:4200
+
 ## Build for production
 
 Run `npx nx build web-aloxe` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.

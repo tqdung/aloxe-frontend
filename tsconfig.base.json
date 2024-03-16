@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "web-authentication/Module": [
+        "apps/web-authentication/src/remote-entry.ts"
+      ],
+      "web-customer/Module": ["apps/web-customer/src/remote-entry.ts"],
+      "web-driver/Module": ["apps/web-driver/src/remote-entry.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

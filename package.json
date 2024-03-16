@@ -2,11 +2,15 @@
   "name": "@aloxe-frontend/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve web-aloxe",
+    "build": "npx nx run-many --target=build --all=true"
+  },
   "private": true,
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "6.11.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
