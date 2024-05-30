@@ -1,13 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
+import { Box } from '@chakra-ui/react';
+import { BingMap } from '@aloxe-frontend/util-bing-map';
+import { BookTaxiPopup } from '../components/BookTaxiPopup';
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="web-customer" />
-    </div>
+    <Box position="relative" w="full" h="full">
+      <BingMap />
+      <BookTaxiPopup />
+    </Box>
   );
 }
 

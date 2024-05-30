@@ -15,6 +15,38 @@ const config: ModuleFederationConfig = {
    *
    */
   remotes: ['web-authentication', 'web-customer', 'web-driver'],
+  additionalShared: [
+    {
+      libraryName: '@emotion',
+      sharedConfig: {
+        eager: true,
+        singleton: true,
+        requiredVersion: false,
+      },
+    },
+    {
+      libraryName: '@chakra-ui',
+      sharedConfig: {
+        eager: true,
+        singleton: true,
+        requiredVersion: false,
+      },
+    },
+    {
+      libraryName: 'react-router-dom',
+      sharedConfig: {
+        singleton: true,
+        requiredVersion: false,
+      },
+    },
+    {
+      libraryName: 'react-query',
+      sharedConfig: {
+        singleton: true,
+        requiredVersion: false,
+      },
+    },
+  ],
 };
 
 export default config;

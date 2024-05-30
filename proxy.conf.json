@@ -1,0 +1,24 @@
+{
+  "/api": {
+    "target": "http://144.217.12.64:9999/api",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": { "^/api": "" }
+  },
+  "/booking-event": {
+    "target": "http://144.217.12.64:9999/booking-event",
+    "changeOrigin": true,
+    "headers": {
+      "ngrok-skip-browser-warning": "69420"
+    },
+    "secure": false,
+    "ws": true,
+    "pathRewrite": { "^/booking-event": "" }
+  },
+  "/bingmapsREST": {
+    "target": "http://dev.virtualearth.net/REST/v1",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": { "^/bingmapsREST": "" }
+  }
+}

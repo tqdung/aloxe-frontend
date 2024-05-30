@@ -15,11 +15,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@aloxe-frontend/aloxe-api": ["libs/shared/aloxe-api/src/index.ts"],
+      "@aloxe-frontend/data-application-store": [
+        "libs/shared/data-application-store/src/index.ts"
+      ],
+      "@aloxe-frontend/util-axios": ["libs/shared/util-axios/src/index.ts"],
+      "@aloxe-frontend/util-bing-map": [
+        "libs/shared/util-bing-map/src/index.ts"
+      ],
       "web-authentication/Module": [
         "apps/web-authentication/src/remote-entry.ts"
       ],
       "web-customer/Module": ["apps/web-customer/src/remote-entry.ts"],
-      "web-driver/Module": ["apps/web-driver/src/remote-entry.ts"]
+      "web-driver/Module": ["apps/web-driver/src/remote-entry.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

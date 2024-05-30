@@ -1,44 +1,30 @@
-import * as React from 'react';
+import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { AxiosInstance } from '@aloxe-frontend/aloxe-api';
+import { authenticationInterceptor } from '@aloxe-frontend/util-axios';
 
-import NxWelcome from './nx-welcome';
+import AppRouter from '../components/AppRouter';
 
-import { Link, Route, Routes } from 'react-router-dom';
-
-const WebAuthentication = React.lazy(() => import('web-authentication/Module'));
-
-const WebCustomer = React.lazy(() => import('web-customer/Module'));
-
-const WebDriver = React.lazy(() => import('web-driver/Module'));
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export function App() {
+  authenticationInterceptor(AxiosInstance);
   return (
-    <React.Suspense fallback={null}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-
-        <li>
-          <Link to="/web-authentication">WebAuthentication</Link>
-        </li>
-
-        <li>
-          <Link to="/web-customer">WebCustomer</Link>
-        </li>
-
-        <li>
-          <Link to="/web-driver">WebDriver</Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route path="/" element={<NxWelcome title="web-aloxe" />} />
-
-        <Route path="/web-authentication" element={<WebAuthentication />} />
-
-        <Route path="/web-customer" element={<WebCustomer />} />
-
-        <Route path="/web-driver" element={<WebDriver />} />
-      </Routes>
+    <React.Suspense fallback={undefined}>
+      <ChakraProvider
+        toastOptions={{ defaultOptions: { position: 'top-right' } }}
+      >
+        <QueryClientProvider client={queryClient}>
+          <AppRouter />
+        </QueryClientProvider>
+      </ChakraProvider>
     </React.Suspense>
   );
 }

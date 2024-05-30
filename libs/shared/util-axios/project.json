@@ -1,0 +1,8 @@
+{
+  "name": "util-axios",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/util-axios/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {}
+}
